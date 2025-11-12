@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournoi de Padel 2025</title>
+  <style>
+    body { font-family: Arial; background: #00b4db; color: white; text-align: center; }
+    header { padding: 50px; }
+    h1 { font-size: 2.5em; }
+    form { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; display: inline-block; }
+    input, select, button { margin: 10px 0; padding: 10px; width: 200px; border-radius: 5px; border: none; }
+    button { background: #ffcc00; color: #333; font-weight: bold; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏆 Tournoi de Padel 2025</h1>
+  <p>Inscris-toi vite ! <span id="places">32</span> places disponibles.</p>
+</header>
+
+<form id="formulaire">
+  <input type="text" name="prenom" placeholder="Prénom" required><br>
+  <input type="text" name="nom" placeholder="Nom" required><br>
+  <input type="email" name="email" placeholder="Email" required><br>
+  <input type="tel" name="tel" placeholder="Téléphone" required><br>
+  <select name="niveau" required>
+    <option value="">Niveau</option>
+    <option>Débutant</option>
+    <option>Intermédiaire</option>
+    <option>Avancé</option>
+  </select><br>
+  <button type="submit">S'inscrire</button>
+</form>
+
+<script>
+let places = 32;
+document.getElementById("formulaire").addEventListener("submit", function(e){
+  e.preventDefault();
+  if(places > 0){
+    places--;
+    document.getElementById("places").textContent = places;
+    alert("✅ Inscription réussie !");
+    this.reset();
+  } else {
+    alert("❌ Désolé, le tournoi est complet !");
+  }
+});
+</script>
+
+</body>
+</html>
